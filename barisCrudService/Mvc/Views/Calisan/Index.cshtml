@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Mvc.Models.mvcCalisanModel>
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+
+<p>
+    <a href="@Url.Action("EkleYadaDuzenle","Calisan")" class="btn btn-default"><i class="fa fa-plus"></i> Yeni Kişi</a>
+</p>
+<table class="table table-striped">
+    <thead class="table-heading">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pozisyon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maas)
+            </th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pozisyon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maas)
+            </td>
+            <td>
+
+                <a href="@Url.Action("EkleYadaDuzenle", "Calisan", new { id = item.CalisanID})" class="btn btn-default"><i class="fa fa-pencil"></i>  Düzenle</a>
+                <a onclick="Sil(@item.CalisanID)" class="btn btn-default"><i class="fa fa-trash"></i> Sil</a>
+             
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+
+        function Sil(id) {
+            alertify.confirm('Web Api CRUD İşlemleri','Silmek istediğine emin misin ?',function(){
+                window.location.href  = '@Url.Action("Sil","Calisan")/'+id;
+            },null );
+        }
+    </script>
+}

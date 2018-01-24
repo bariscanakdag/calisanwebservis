@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities2">
+    <EntitySetMapping Name="Calisan">
+      <EntityTypeMapping TypeName="DatabaseModel.Calisan">
+        <MappingFragment StoreEntitySet="Calisan">
+          <ScalarProperty Name="CalisanID" ColumnName="CalisanID" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Pozisyon" ColumnName="Pozisyon" />
+          <ScalarProperty Name="Ofis" ColumnName="Ofis" />
+          <ScalarProperty Name="Yas" ColumnName="Yas" />
+          <ScalarProperty Name="Maas" ColumnName="Maas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
